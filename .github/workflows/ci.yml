@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  check-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Ensure index.html exists
+        run: |
+          if [ ! -f src/index.html ]; then
+            echo "ERROR: src/index.html not found"
+            exit 1
+          fi
