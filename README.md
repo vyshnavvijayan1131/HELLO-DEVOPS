@@ -16,3 +16,11 @@ open src/index.html
 =======
 # HELLO-DEVOPS
 >>>>>>> 54146b11028c7ca56c5fc72fd8a2c03815e3a3f5
+## Proof of Work
+
+### ✅ CI Pipeline Passing
+![CI Actions](screenshots/actions.png)
+
+
+### 📜 Git Log
+![Git Log](screenshots/actions.png)
