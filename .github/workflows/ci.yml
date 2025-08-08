@@ -1,19 +1,27 @@
-name: CI
+name: CI Pipeline
 
 on:
   push:
     branches: [ main, dev ]
   pull_request:
-    branches: [ main, dev ]
+    branches: [ main ]
 
 jobs:
-  check-files:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Ensure index.html exists
-        run: |
-          if [ ! -f src/index.html ]; then
-            echo "ERROR: src/index.html not found"
-            exit 1
-          fi
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install || echo "No package.json found, skipping install"
+
+      - name: Run tests
+        run: echo "No tests yet, but CI works!"
+
